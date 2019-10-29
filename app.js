@@ -7,6 +7,10 @@ btn.addEventListener('click', function () {
 const output = document.createElement('div');
 document.body.appendChild(output);
 
+function outputPlanets(data){
+    console.log(data);
+}
+
 function fetchData(url) {
     fetch(url).then(function (rep) {
         return rep.json()
@@ -19,7 +23,11 @@ function fetchData(url) {
             btn2.addEventListener('click', function () {
                 fetchData(data.next)
             })
-        }
-        console.log(data);
+        } 
+        const planets = data.results.map(function(item){
+            console.log(item);
+            return {name:item.name, films:item.films};
+        })
+        console.log(planets);
     })
 }
