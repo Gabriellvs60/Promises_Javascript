@@ -8,7 +8,19 @@ const output = document.createElement('div');
 document.body.appendChild(output);
 
 function outputPlanets(data){
-    console.log(data);
+    data.forEach(function(item){
+        console.log(data);
+        const div = document.createElement('div');
+        div.textContent = item.name;
+        const ul = document.createElement('ul');
+        for(letx = 0 ; x<item.films.length;x++){
+            let li = document.createElement('li');
+            li.textContent = items.films[x];
+            ul.appendChild(li);
+        }
+        div.appendChild(ul);
+        output.appendChild(div);
+    })
 }
 
 function fetchData(url) {
